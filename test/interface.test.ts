@@ -39,5 +39,18 @@ describe('interface', () => {
         console.info(manager)
     });
     
+    it('sould support function interface', () => {
+        interface Person {
+            name: string,
+            sayHello(name:string): string
+        }
+        const helloHegi:Person = {
+            name :  "Hegi",
+            sayHello : (name)=>{
+                return `Hello ${name}`
+            }
+        }
+        console.info(helloHegi.sayHello("Hegi"))
+    });
     
  })
