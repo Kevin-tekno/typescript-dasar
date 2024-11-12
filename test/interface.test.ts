@@ -52,5 +52,19 @@ describe('interface', () => {
         }
         console.info(helloHegi.sayHello("Hegi"))
     });
+    it('should support intersection types', () => {
+        interface HasId{
+            id: number
+        }
+        interface HasName{
+            name: string
+        }
+        type Domain = HasId & HasName
+        const domain:Domain= {
+            id:2,
+            name:"biawak.com"
+        }
+        console.info(domain)
+    });
     
  })
