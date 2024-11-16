@@ -42,5 +42,21 @@ describe('Function typescript', () => {
         expect(typeof callMe('hello')).toBe('string')
         expect(typeof callMe(892929)).toBe('number')
     });
+
+    it('should support function as parameter', () => {
+        function sayHello(name:string, toUpperCase : (value : string)=>string): string{
+            return `Hello ${toUpperCase(name)}`
+        }
+
+        function toUpperCase(value:string):string{
+            return value.toUpperCase();
+        }
+
+        expect(sayHello("Kevin", toUpperCase)).toBe("Hello KEVIN");
+        expect(sayHello("Kevin", (value:string)=>value.toLowerCase())).toBe("Hello kevin");
+
+
+    });
+    
     
 });
